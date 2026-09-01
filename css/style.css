@@ -1,0 +1,718 @@
+/* ==================================================
+   1. Reset & Global Variables (الألوان والخطوط الأساسية)
+   ================================================== */
+:root {
+    --primary-color: #0d2b45;       /* أزرق داكن فخم */
+    --secondary-color: #203c56;     /* أزرق احترافي */
+    --accent-color: #d4af37;        /* ذهبي خفيف راقي */
+    --bg-light: #f8f9fa;            /* رمادي فاتح للخلفيات */
+    --bg-white: #ffffff;            /* أبيض ناصع */
+    --text-dark: #1f2937;           /* أسود مائل للرمادي للنصوص */
+    --text-muted: #6b7280;          /* رمادي للنصوص الفرعية */
+    --border-color: #e5e7eb;        /* لون الحدود */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+    --transition: all 0.3s ease;
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    direction: rtl;
+    text-align: right;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ==================================================
+   2. Typography & Buttons (الأزرار والعناوين)
+   ================================================== */
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    line-height: 1.3;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 1.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: #b89628;
+    color: var(--bg-white);
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1eb956;
+}
+
+.btn-block {
+    width: 100%;
+    display: block;
+}
+
+/* ==================================================
+   3. Header & Navigation (الهيدر وقائمة الهاتف)
+   ================================================== */
+.main-header {
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.brand-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.platform-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-btn .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-md);
+    display: none;
+}
+
+.nav-menu.active {
+    display: block;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 15px 0;
+}
+
+.nav-menu li {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-menu a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+}
+
+/* ==================================================
+   4. Hero Section (قسم الواجهة)
+   ================================================== */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--bg-white);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.hero-content .sub-heading {
+    display: inline-block;
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    color: var(--bg-white);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.rating-box-note {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 0.85rem;
+}
+
+.stars {
+    color: #ffc107;
+    margin-left: 5px;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ==================================================
+   5. About & Services Sections (من نحن والخدمات)
+   ================================================== */
+.about-section, .services-section, .why-us-section, .how-it-works-section, .gallery-section, .testimonials-section, .faq-section, .contact-section {
+    padding: 40px 0;
+}
+
+.about-card {
+    background: var(--bg-white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border-right: 4px solid var(--accent-color);
+}
+
+.about-card p {
+    margin-bottom: 15px;
+}
+
+.highlight-text {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.services-grid, .why-us-grid, .steps-grid, .gallery-grid, .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.service-card, .why-card, .step-card, .testimonial-card {
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.service-icon, .why-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.service-card h3, .why-card h3, .step-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.service-intro {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.service-list {
+    list-style-type: square;
+    padding-right: 20px;
+    font-size: 0.9rem;
+}
+
+.service-list li {
+    margin-bottom: 5px;
+}
+/* ==================================================
+   6. How It Works, Gallery & Testimonials
+   ================================================== */
+.step-card {
+    position: relative;
+    padding-top: 35px;
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.gallery-item {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background-color: #e2e8f0;
+}
+
+.gallery-caption {
+    padding: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.review-text {
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+/* ==================================================
+   7. FAQ Section (الأسئلة الشائعة)
+   ================================================== */
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--bg-white);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 15px;
+    text-align: right;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.faq-question .icon {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    background-color: #fafafa;
+}
+
+.faq-answer p {
+    padding: 0 15px 15px 15px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+.faq-item.active .faq-question .icon {
+    transform: rotate(45deg);
+}
+
+/* ==================================================
+   8. CTA & Contact Section (النموذج والخريطة)
+   ================================================== */
+.cta-section {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    text-align: center;
+    padding: 40px 0;
+}
+
+.cta-container h2 {
+    color: var(--bg-white);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.cta-container p {
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.info-card {
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.info-card h3 {
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    margin-bottom: 10px;
+}
+
+.info-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.map-placeholder {
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--secondary-color);
+}
+
+.map-box {
+    background-color: #eef2f5;
+    padding: 30px 15px;
+    text-align: center;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.contact-form-box {
+    background-color: var(--bg-white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.contact-form-box h3 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(13, 43, 69, 0.1);
+}
+
+/* ==================================================
+   9. Footer Section (الفوتير)
+   ================================================== */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding-top: 40px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-bottom: 30px;
+}
+
+.footer-col h3 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col a {
+    color: var(--bg-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.footer-col a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+.footer-bottom {
+    background-color: #081b2c;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ==================================================
+   10. Floating Buttons (الأزرار العائمة)
+   ================================================== */
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+
+.float-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    box-shadow: var(--shadow-md);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.float-whatsapp {
+    background-color: #25d366;
+}
+
+.float-call {
+    background-color: var(--primary-color);
+}
+
+.float-scroll {
+    background-color: var(--secondary-color);
+    display: none;
+}
+
+.float-scroll.show {
+    display: flex;
+}
+
+.float-btn:hover {
+    transform: scale(1.08);
+}
+
+/* ==================================================
+   11. Media Queries (التجاوب مع الشاشات الكبيرة)
+   ================================================== */
+@media (min-width: 768px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .nav-menu {
+        position: static;
+        display: block;
+        box-shadow: none;
+        width: auto;
+        background: none;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        gap: 20px;
+        padding: 0;
+    }
+
+    .nav-menu li {
+        border-bottom: none;
+    }
+
+    .nav-menu a {
+        padding: 5px 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-cta-group {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .why-us-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
